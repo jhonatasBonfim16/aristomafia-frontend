@@ -25,7 +25,6 @@ body.red-bg {
 
 /* Marca Aristomafia / BANG */
 .brand-logo {
-    
     font-size: 3.5rem;
     font-weight: 900;
     font-style: italic;
@@ -33,9 +32,9 @@ body.red-bg {
     text-decoration: none;
     margin-bottom: 5px;
 }
-.brand-logo a{
-     text-decoration: none;
-     color: #ff3b00;
+.brand-logo a {
+    text-decoration: none;
+    color: #ff3b00;
 }
 
 .logo-bang {
@@ -52,6 +51,8 @@ body.red-bg {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .top-right-group {
@@ -91,11 +92,13 @@ body.red-bg {
     margin-bottom: 15px;
     position: relative;
     z-index: 10;
+    flex-wrap: wrap;
 }
 
 .nav-item {
     position: relative;
     flex: 1;
+    min-width: 130px;
 }
 
 .nav-btn {
@@ -128,7 +131,7 @@ body.red-bg {
 
 .dropdown-menu.show:hover,
 .nav-item:hover .dropdown-menu {
-    display:block;
+    display: block;
 }
 
 .dropdown-menu a {
@@ -147,20 +150,19 @@ body.red-bg {
 }
 
 /* Wrapper pai para garantir o posicionamento sobreposto correto */
-/* Wrapper pai para garantir o posicionamento sobreposto correto */
 .news-wrapper {
     position: relative;
     width: 100%;
     margin-top: 10px;
 }
 
-/* Banner cor-de-rosa/magenta estendido do Apoia.se */
 /* Banner RGB Animado do Apoia.se */
 .apoia-banner {
     position: relative;
     z-index: 1;
     border: 2px solid #000;
     width: 65%;
+    min-width: 200px;
     height: 45px;
     margin-left: 5px;
     margin-bottom: 8px;
@@ -221,7 +223,7 @@ body.red-bg {
     border: 2px solid #000;
     padding: 25px 20px 20px 20px;
     
-    /* Inclinação do bloco principal */
+    /* Inclinação do bloco principal (levemente suavizada em telas menores via media query) */
     transform: rotate(-2.8deg);
     transform-origin: left top;
     
@@ -229,7 +231,6 @@ body.red-bg {
     z-index: 2;
     box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
 }
-
 
 .news-main-title {
     font-size: 3.5rem;
@@ -256,8 +257,6 @@ body.red-bg {
     height: 100%;
     object-fit: cover;
 }
-
-
 
 .video-footer {
     position: absolute;
@@ -377,11 +376,11 @@ body.red-bg {
     align-items: flex-end;
     margin-top: 40px;
     padding: 10px 0;
-    background: transparent; /* Remove qualquer cor de fundo ou caixa */
-    border: none; /* Remove a borda superior */
+    background: transparent;
+    border: none;
 }
 
-/* Texto centralizado ou alinhado à esquerda na base */
+/* Texto à esquerda na base */
 .footer-links-text {
     color: #fff;
     font-size: 0.85rem;
@@ -408,9 +407,93 @@ body.red-bg {
     border-radius: 15px;
     box-shadow: 2px 2px 0px #000;
 }
-.social-icons-group a{
+
+.social-icons-group a {
     text-decoration: none;
     color: black;
     font-size: 0.85rem;
     font-style: italic;
+}
+
+
+/* ==========================================
+   MEDIA QUERIES - RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================== */
+
+/* Tablets e Telas Médias (Abaixo de 768px) */
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding: 10px;
+    }
+
+    .brand-logo, .logo-bang {
+        font-size: 2.5rem;
+    }
+
+    /* Transforma a grade de 3 colunas em 2 colunas */
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .apoia-banner {
+        width: 85%;
+    }
+
+    .news-board {
+        transform: none; /* Remove a rotação exagerada em telas menores para facilitar a leitura */
+        padding: 15px;
+    }
+
+    .news-main-title {
+        font-size: 2.5rem;
+    }
+
+    .video-frame {
+        height: 220px;
+    }
+}
+
+/* Celulares Pequenos (Abaixo de 480px) */
+@media (max-width: 480px) {
+    .brand-logo, .logo-bang {
+        font-size: 2rem;
+    }
+
+    /* Empilha os botões do menu principal um abaixo do outro */
+    .navbar {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    /* Transforma a grade de personagens em coluna única (1 por linha) */
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apoia-banner {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .video-frame {
+        height: 180px;
+    }
+
+    /* Empilha o rodapé para evitar quebra de layout */
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .social-icons-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
