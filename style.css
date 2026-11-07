@@ -1,0 +1,416 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+}
+
+body.red-bg {
+    background-color: #830404;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 900px;
+    background-color: #830404;
+    padding: 15px;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Marca Aristomafia / BANG */
+.brand-logo {
+    
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-style: italic;
+    text-shadow: 3px 3px 0 #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+.brand-logo a{
+     text-decoration: none;
+     color: #ff3b00;
+}
+
+.logo-bang {
+    color: #ff3b00;
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Header Topo com Avatares e Botão Start */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.top-right-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatars-row {
+    display: flex;
+    gap: 5px;
+}
+
+.avatar-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #eee;
+    border: 2px solid #000;
+}
+
+.start-banner-btn {
+    background-color: #ffff00;
+    border: 2px solid #000;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 5px 30px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #000;
+}
+
+/* Barra de Navegação */
+.navbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-item {
+    position: relative;
+    flex: 1;
+}
+
+.nav-btn {
+    width: 100%;
+    background-color: #ffff00;
+    border: 2px solid #000;
+    padding: 8px 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+/* Menu Dropdown Amarelo Empilhado */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffff00;
+    border: 2px solid #000;
+    border-top: none;
+    z-index: 20;
+}
+
+.dropdown-menu.show:hover,
+.nav-item:hover .dropdown-menu {
+    display:block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 10px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 1px solid #000;
+    font-size: 1rem;
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Wrapper pai para garantir o posicionamento sobreposto correto */
+/* Wrapper pai para garantir o posicionamento sobreposto correto */
+.news-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Banner cor-de-rosa/magenta estendido do Apoia.se */
+/* Banner RGB Animado do Apoia.se */
+.apoia-banner {
+    position: relative;
+    z-index: 1;
+    border: 2px solid #000;
+    width: 65%;
+    height: 45px;
+    margin-left: 5px;
+    margin-bottom: 8px;
+    
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+    /* Formato geométrico inclinado */
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+    box-shadow: 2px 2px 0px #000;
+
+    /* Configuração do Efeito RGB */
+    background: linear-gradient(
+        90deg, 
+        #ff0000, 
+        #ff7300, 
+        #fffb00, 
+        #48ff00, 
+        #00ffd5, 
+        #002bf7, 
+        #7a00ff, 
+        #ff00c8, 
+        #ff0000
+    );
+    background-size: 300% 100%;
+    animation: rgb-effect 15s linear infinite;
+}
+
+/* Animação que faz o degradê deslizar */
+@keyframes rgb-effect {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Texto Apoia.se estilizado */
+.apoia-text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-style: italic;
+    color: #fff;
+    text-shadow: 
+        2px 2px 0 #000,
+       -1px -1px 0 #000,  
+        1px -1px 0 #000,
+       -1px  1px 0 #000,
+        1px  1px 0 #000;
+    letter-spacing: 1px;
+}
+
+/* Bloco Roxo/Lilás de Notícias */
+.news-board {
+    background-color: #c4c4ff;
+    border: 2px solid #000;
+    padding: 25px 20px 20px 20px;
+    
+    /* Inclinação do bloco principal */
+    transform: rotate(-2.8deg);
+    transform-origin: left top;
+    
+    position: relative;
+    z-index: 2;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
+}
+
+
+.news-main-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.news-subhead {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.video-frame {
+    position: relative;
+    background-color: #000;
+    border: 2px solid #000;
+    margin-bottom: 15px;
+    height: 300px;
+}
+
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.video-footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+}
+
+.news-info {
+    font-size: 0.9rem;
+}
+
+.news-info a {
+    color: #000;
+    word-break: break-all;
+}
+
+.emotes-label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.emotes-list {
+    font-size: 1.4rem;
+}
+
+/* Botão Nos Conheça */
+.meet-container {
+    margin: 20px 0;
+}
+
+.meet-btn {
+    background-color: #ffff00;
+    border: 2px solid #000;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 8px 25px;
+    cursor: pointer;
+}
+
+/* Cards de Personagens */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.character-card {
+    background-color: #ffffaa;
+    border: 3px solid #ff3b00;
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+    min-height: 280px;
+}
+
+.card-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.card-image-box {
+    width: 100%;
+    height: 160px;
+    border: 2px solid #000;
+    margin-bottom: 8px;
+    background-size: cover;
+    background-position: center;
+}
+
+.placeholder-blue { background-color: #2b5876; }
+.placeholder-dark { background-color: #333; }
+.placeholder-brown { background-color: #8a5a36; }
+.placeholder-pink { background-color: #a83279; }
+.placeholder-orange { background-color: #d35400; }
+.placeholder-grey { background-color: #bdc3c7; }
+
+.card-attributes {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.card-history small {
+    font-weight: bold;
+    display: block;
+}
+
+.card-history p {
+    font-size: 0.75rem;
+    line-height: 1.1;
+}
+
+.pencil-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: #ffff00;
+    border: 1px solid #000;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Rodapé limpo, sem bordas e flutuando sobre o fundo vermelho */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding: 10px 0;
+    background: transparent; /* Remove qualquer cor de fundo ou caixa */
+    border: none; /* Remove a borda superior */
+}
+
+/* Texto centralizado ou alinhado à esquerda na base */
+.footer-links-text {
+    color: #fff;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.footer-links-text u {
+    cursor: pointer;
+}
+
+/* Grupo de ícones das redes sociais no canto direito */
+.social-icons-group {
+    display: flex;
+    gap: 8px;
+}
+
+.social-badge {
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-style: italic;
+    border-radius: 15px;
+    box-shadow: 2px 2px 0px #000;
+}
+.social-icons-group a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.85rem;
+    font-style: italic;
+}
