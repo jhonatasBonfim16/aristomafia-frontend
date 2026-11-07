@@ -514,7 +514,7 @@ body.red-bg {
     }
 
     .news-board {
-        transform: none;
+        transform: rotate(-2.8deg);
         padding: 15px;
     }
 
