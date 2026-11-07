@@ -415,12 +415,50 @@ body.red-bg {
     font-style: italic;
 }
 
-
 /* ==========================================
-   MEDIA QUERIES - RESPONSIVIDADE (MOBILE & TABLET)
+   ESTILO DO MENU HAMBÚRGUER (MOBILE)
    ========================================== */
 
-/* Tablets e Telas Médias (Abaixo de 768px) */
+/* Por padrão, o botão hambúrguer fica oculto em telas grandes (Desktop) */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+    margin-bottom: 10px;
+}
+
+.hamburger-btn span {
+    width: 100%;
+    height: 4px;
+    background-color: #ffff00;
+    border: 1px solid #000;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do botão hambúrguer virando um "X" quando aberto */
+.hamburger-btn.open span:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+}
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn.open span:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+
+/* ==========================================
+   MEDIA QUERIES - RESPONSIVIDADE E MENU HAMBÚRGUER
+   ========================================== */
+
 @media (max-width: 768px) {
     .main-wrapper {
         padding: 10px;
@@ -430,7 +468,42 @@ body.red-bg {
         font-size: 2.5rem;
     }
 
-    /* Transforma a grade de 3 colunas em 2 colunas */
+    /* Exibe o botão hambúrguer no mobile */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Esconde a barra de navegação padrão por padrão no mobile */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background-color: #b70000;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        margin-bottom: 15px;
+    }
+
+    /* Quando a classe 'active' for adicionada pelo JS, o menu aparece */
+    .navbar.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    /* Ajuste do dropdown no mobile para abrir ao toque */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: 1px solid #000;
+        margin-top: 2px;
+    }
+
+    /* Grade de personagens em 2 colunas */
     .cards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -441,7 +514,7 @@ body.red-bg {
     }
 
     .news-board {
-        transform: none; /* Remove a rotação exagerada em telas menores para facilitar a leitura */
+        transform: none;
         padding: 15px;
     }
 
@@ -454,23 +527,12 @@ body.red-bg {
     }
 }
 
-/* Celulares Pequenos (Abaixo de 480px) */
 @media (max-width: 480px) {
     .brand-logo, .logo-bang {
         font-size: 2rem;
     }
 
-    /* Empilha os botões do menu principal um abaixo do outro */
-    .navbar {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .nav-item {
-        width: 100%;
-    }
-
-    /* Transforma a grade de personagens em coluna única (1 por linha) */
+    /* 1 coluna para os cards em telas muito pequenas */
     .cards-grid {
         grid-template-columns: 1fr;
     }
@@ -484,7 +546,7 @@ body.red-bg {
         height: 180px;
     }
 
-    /* Empilha o rodapé para evitar quebra de layout */
+    /* Rodapé empilhado */
     .footer {
         flex-direction: column;
         align-items: center;
@@ -497,3 +559,7 @@ body.red-bg {
         flex-wrap: wrap;
     }
 }
+
+
+
+
